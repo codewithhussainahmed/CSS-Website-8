@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <style>
+        @font-face {
+            font-family: f1;
+            src: url(Assets/Montserrat-VariableFont_wght.ttf);
+        }
+
+        @font-face {
+            font-family: f2;
+            src: url(Assets/JosefinSans-VariableFont_wght.ttf);
+        }
+
+        @font-face {
+            font-family: f3;
+            src: url(Assets/GreatVibes-Regular.ttf);
+        }
+
+        body {
+            background-color: #0b1416;
+            overflow-x: hidden;
+        }
+
+        #nav {
+            padding-left: 100px;
+            font-family: f1;
+            height: 111px;
+            position: relative;
+            background-color: white;
+            box-sizing: border-box;
+        }
+
+        #btn {
+            margin-left: 185px;
+            float: right;
+            width: 248px;
+            height: 110px;
+            margin-right: -12px;
+            border: none;
+            outline: none;
+            background-color: #c6a16e;
+            color: white;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        #btn:hover {
+            border: 1px solid #c6a16e;
+            background-color: white;
+            color: #c6a16e;
+        }
+
+        #navbarSupportedContent {
+            position: absolute;
+            margin-left: 285px;
+        }
+
+        #faltu {
+            background-color: white;
+            width: 1351px;
+            height: 600px;
+            position: relative;
+            z-index: -100;
+        }
+
+        #hero {
+            background-image: url(Assets/hero.jpg);
+            width: 1251px;
+            height: 830px;
+            margin-left: 100px;
+            margin-top: -600px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 1px solid transparent;
+        }
+
+        #ht1 {
+            font-family: f2;
+            color: white;
+            font-size: 100px;
+            line-height: 110px;
+            font-weight: 500;
+            letter-spacing: normal;
+            margin-top: 259px;
+            margin-left: 94px;
+        }
+
+        #ht2 {
+            font-family: f3;
+            color: #c6a16e;
+            margin-top: 14px;
+            font-size: 35px;
+            line-height: 52.5px;
+            margin-left: 94px;
+        }
+
+        #client {
+            position: relative;
+            width: 1351px;
+            height: 1287px;
+            margin-top: -300px;
+            z-index: -10;
+        }
+
+        #ct1 {
+            margin: auto;
+            margin-top: 500px;
+            width: 1170px;
+            height: 52px;
+            font-family: f3;
+            font-size: 35px;
+            color: #c6a16e;
+            text-align: center;
+        }
+
+        #ct2 {
+            text-align: center;
+            margin: auto;
+            margin-top: 22px;
+            width: 1170px;
+            height: 52px;
+            font-family: f2;
+            font-size: 60px;
+            line-height: 72px;
+            color: white;
+        }
+
+        #cards {
+            display: flex;
+            gap: 50px;
+            justify-content: center;
+            margin-top: 100px;
+        }
+
+        .hover-card {
+            width: 310px;
+            height: 701px;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hover-card .card-image {
+            width: 100%;
+            height: 351px;
+            object-fit: cover;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+            display: block;
+        }
+
+        .hover-card:hover .card-image {
+            transform: scale(1.08);
+        }
+
+        .hover-card .card-content {
+            padding: 20px;
+        }
+
+        .hover-card .card-title {
+            font-family: f1;
+            color: #c6a16e;
+            font-size: 30px;
+            line-height: 45px;
+            transition: color 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .hover-card:hover .card-title {
+            color: white !important;
+        }
+
+        .hover-card .card-text {
+            font-family: f1;
+            color: #96989a;
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .hover-card .arrow-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #c6a16e;
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.3s ease;
+        }
+
+        .hover-card:hover .arrow-btn {
+            color: white !important;
+        }
+
+        /* About Section */
+        #about {
+            width: 100%;
+            height: 800px;
+            background-color: #0b1416;
+            position: relative;
+            margin-top: -500px;
+            padding-top: 200px;
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 500px;
+            height: 600px;
+            background-image: url('Assets/about.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-content {
+            width: 500px;
+            color: white;
+        }
+
+        .about-subtitle {
+            font-family: f3;
+            color: #c6a16e;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .about-title {
+            font-family: f2;
+            font-size: 60px;
+            line-height: 72px;
+            margin-bottom: 30px;
+        }
+
+        .about-text {
+            font-family: f1;
+            color: #96989a;
+            font-size: 16px;
+            line-height: 30px;
+            margin-bottom: 40px;
+        }
+
+        .about-feature {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            color: #c6a16e;
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+        .feature-text {
+            font-family: f1;
+            color: white;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* Services Section */
+        #services {
+            width: 100%;
+            background-color: #0b1416;
+            padding: 100px 0;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .services-subtitle {
+            font-family: f3;
+            color: #c6a16e;
+            font-size: 35px;
+        }
+
+        .services-title {
+            font-family: f2;
+            font-size: 60px;
+            line-height: 72px;
+            color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: #1a282d;
+            padding: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background-color: #c6a16e;
+        }
+
+        .service-icon {
+            color: #c6a16e;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .service-card:hover .service-icon {
+            color: white;
+        }
+
+        .service-title {
+            font-family: f1;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .service-text {
+            font-family: f1;
+            color: #96989a;
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .service-card:hover .service-text {
+            color: white;
+        }
+
+        /* Testimonials */
+        #testimonials {
+            width: 100%;
+            background-color: #0b1416;
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .testimonials-subtitle {
+            font-family: f3;
+            color: #c6a16e;
+            font-size: 35px;
+        }
+
+        .testimonials-title {
+            font-family: f2;
+            font-size: 60px;
+            line-height: 72px;
+            color: white;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: #1a282d;
+            padding: 40px;
+            flex: 1;
+        }
+
+        .testimonial-text {
+            font-family: f1;
+            color: #96989a;
+            font-size: 16px;
+            line-height: 30px;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #c6a16e;
+            margin-right: 20px;
+        }
+
+        .author-info {
+            font-family: f1;
+        }
+
+        .author-name {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .author-title {
+            color: #c6a16e;
+            font-size: 14px;
+        }
+
+        /* CTA Section */
+        #cta {
+            width: 100%;
+            height: 500px;
+            background-image: url('Assets/cta-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .cta-subtitle {
+            font-family: f3;
+            color: #c6a16e;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .cta-title {
+            font-family: f2;
+            font-size: 60px;
+            line-height: 72px;
+            margin-bottom: 30px;
+        }
+
+        .cta-text {
+            font-family: f1;
+            font-size: 16px;
+            line-height: 30px;
+            margin-bottom: 40px;
+            color: #96989a;
+        }
+
+        .cta-button {
+            background-color: #c6a16e;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-family: f1;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: white;
+            color: #c6a16e;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0b1416;
+            padding: 100px 0 50px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            grid-column: span 4;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .footer-column-title {
+            font-family: f1;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-text {
+            font-family: f1;
+            color: #96989a;
+            font-size: 16px;
+            line-height: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-link {
+            margin-bottom: 15px;
+        }
+
+        .footer-link a {
+            font-family: f1;
+            color: #96989a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link a:hover {
+            color: #c6a16e;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            color: #c6a16e;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .contact-text {
+            font-family: f1;
+            color: #96989a;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #1a282d;
+        }
+
+        .copyright {
+            font-family: f1;
+            color: #96989a;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-white" id="nav">
+        <div class="container-fluid">
+            <img src="Assets/logo.png" alt="">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Gallery</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Blog
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Blog </a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Blog Details</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Pages
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Elements</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                    </li>
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <button id="btn">Visit Us</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div id="faltu"></div>
+    <div id="hero">
+        <div id="ht1">Discover true personalization</div>
+        <div id="ht2">Made to Measure Dress Shirts</div>
+    </div>
+    <div id="client">
+        <div id="ct1">What We Offer</div>
+        <div id="ct2">What we offer to Clients</div>
+        <div id="cards">
+            <div class="hover-card">
+                <img src="Assets/offers1 (1).jpg" class="card-image" alt="Tailoring">
+                <div class="card-content">
+                    <h3 class="card-title">Perfect Body Measurements</h3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <button class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="hover-card">
+                <img src="Assets/offers2 (1).jpg" class="card-image" alt="Tailoring">
+                <div class="card-content">
+                    <h3 class="card-title">Premium Style Cutting</h3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <button class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="hover-card">
+                <img src="Assets/offers3 (1).jpg" class="card-image" alt="Tailoring">
+                <div class="card-content">
+                    <h3 class="card-title">Restoration With Care</h3>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <button class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="about-image"></div>
+            <div class="about-content">
+                <div class="about-subtitle">About Our Company</div>
+                <h2 class="about-title">We are the best in our craft</h2>
+                <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                    ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="feature-icon"><i class="fa-solid fa-scissors"></i></div>
+                        <div class="feature-text">
+                            <h4 class="feature-title">Professional Tailors</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="feature-icon"><i class="fa-solid fa-shirt"></i></div>
+                        <div class="feature-text">
+                            <h4 class="feature-title">Quality Materials</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                    <div class="about-feature">
+                        <div class="feature-icon"><i class="fa-solid fa-medal"></i></div>
+                        <div class="feature-text">
+                            <h4 class="feature-title">Years of Experience</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="services-header">
+            <div class="services-subtitle">Our Services</div>
+            <h2 class="services-title">What We Can Do For You</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+                <h3 class="service-title">Custom Tailoring</h3>
+                <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus
+                    nec ullamcorper mattis.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-shirt"></i></div>
+                <h3 class="service-title">Shirt Making</h3>
+                <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus
+                    nec ullamcorper mattis.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-vest"></i></div>
+                <h3 class="service-title">Suit Making</h3>
+                <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus
+                    nec ullamcorper mattis.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                <h3 class="service-title">Alterations</h3>
+                <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus
+                    nec ullamcorper mattis.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-tshirt"></i></div>
+                <h3 class="service-title">Wedding Attire</h3>
+                <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus
+                    nec ullamcorper mattis.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-magic"></i></div>
+                <h3 class="service-title">Dry Cleaning</h3>
+                <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus
+                    nec ullamcorper mattis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="testimonials-header">
+            <div class="testimonials-subtitle">Testimonials</div>
+            <h2 class="testimonials-title">What Our Clients Say</h2>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                    luctus nec ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet."</p>
+                <div class="testimonial-author">
+                    <div class="author-image"></div>
+                    <div class="author-info">
+                        <div class="author-name">John Smith</div>
+                        <div class="author-title">Regular Client</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus,
+                    luctus nec ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet."</p>
+                <div class="testimonial-author">
+                    <div class="author-image"></div>
+                    <div class="author-info">
+                        <div class="author-name">Sarah Johnson</div>
+                        <div class="author-title">Wedding Client</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta">
+        <div class="cta-overlay"></div>
+        <div class="cta-content">
+            <div class="cta-subtitle">Ready to Get Started?</div>
+            <h2 class="cta-title">Book An Appointment Today</h2>
+            <p class="cta-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                ullamcorper mattis, pulvinar dapibus leo.</p>
+            <button class="cta-button">Contact Us</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="Assets/logo.png" alt="Logo">
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-column-title">About Us</h3>
+                <p class="footer-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                    ullamcorper mattis, pulvinar dapibus leo.</p>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-column-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#">Home</a></li>
+                    <li class="footer-link"><a href="#">About</a></li>
+                    <li class="footer-link"><a href="#">Services</a></li>
+                    <li class="footer-link"><a href="#">Gallery</a></li>
+                    <li class="footer-link"><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-column-title">Services</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#">Custom Tailoring</a></li>
+                    <li class="footer-link"><a href="#">Shirt Making</a></li>
+                    <li class="footer-link"><a href="#">Suit Making</a></li>
+                    <li class="footer-link"><a href="#">Alterations</a></li>
+                    <li class="footer-link"><a href="#">Wedding Attire</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-column-title">Contact Us</h3>
+                <div class="footer-contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="contact-text">Lakshman Street. Karachi</div>
+                </div>
+                <div class="footer-contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="contact-text">+92 3273712942</div>
+                </div>
+                <div class="footer-contact-item">
+                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="contact-text">ilovemadina2102@gmail.com</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2023 TailorCraft. All Rights Reserved.Made By Muhammad Hussain Raza</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
